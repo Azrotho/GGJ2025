@@ -43,6 +43,7 @@ text = "Quit"
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="MainTitle" type="Sprite2D" parent="."]
+texture_filter = 2
 position = Vector2(0, 28)
 scale = Vector2(0.677778, 0.677778)
 texture = ExtResource("1_t5dyl")
