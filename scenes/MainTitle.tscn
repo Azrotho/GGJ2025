@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1g14oiqh2l11"]
+
+[ext_resource type="Script" path="res://scripts/main_title.gd" id="1_qfp0q"]
+[ext_resource type="Texture2D" uid="uid://bfta2tqfoojn7" path="res://assets/icons/MainTitle.png" id="1_t5dyl"]
+
+[node name="MainTitle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qfp0q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_right = 232.0
+offset_bottom = 214.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MainTitle" type="Sprite2D" parent="."]
+position = Vector2(0, 28)
+scale = Vector2(0.677778, 0.677778)
+texture = ExtResource("1_t5dyl")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
