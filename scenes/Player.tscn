@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw8m1nn8wowg"]
+
+[ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bvnl"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11frh"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k26yv"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2adun"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1qjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bvnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11frh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k26yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2adun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_s1qjo")
+frame_progress = 0.0182963
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
