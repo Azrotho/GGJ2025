@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=8 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 
@@ -35,15 +35,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 7.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sa1l"]
+size = Vector2(14, 15)
 
 [node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s1qjo")
-frame_progress = 0.0182963
+autoplay = "default"
+frame_progress = 0.387142
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+limit_bottom = 120
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5sa1l")
