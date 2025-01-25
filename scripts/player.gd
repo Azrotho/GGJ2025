@@ -37,6 +37,8 @@ func _ready() -> void:
 	maxHeight = position.y
 	currentDialogue = list_dialogues["test"]
 	inDialogue = true
+	if(Globals.have_finish_game == "true"):
+		sprite.play("default_golden")
 
 func _physics_process(delta: float) -> void:
 	if inDialogue:
@@ -48,7 +50,10 @@ func _physics_process(delta: float) -> void:
 		if wasOffFloor:
 			if position.y > maxHeight + 100:
 				dead = true
-				sprite.play("death")
+				if(Globals.have_finish_game == "true"):
+					sprite.play("death_golden")
+				else:
+					sprite.play("death")
 				Globals.save()
 			wasOffFloor = false
 		maxHeight = get_position().y
