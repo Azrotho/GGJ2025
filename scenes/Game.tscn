@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://deqt3vig4oe3w"]
+[gd_scene load_steps=18 format=3 uid="uid://deqt3vig4oe3w"]
 
 [ext_resource type="PackedScene" uid="uid://bw8m1nn8wowg" path="res://scenes/Player.tscn" id="1_vrqpk"]
 [ext_resource type="Texture2D" uid="uid://heauyiq2hjbx" path="res://assets/sprites/Sprite-0006.png" id="2_aqlxo"]
@@ -337,7 +337,45 @@ texture = ExtResource("4_pecbh")
 [sub_resource type="TileSet" id="TileSet_0ik61"]
 sources/0 = SubResource("TileSetAtlasSource_cor5m")
 
+[sub_resource type="Animation" id="Animation_b44h1"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../metal moving platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-151, -400), Vector2(-151, -486)]
+}
+
+[sub_resource type="Animation" id="Animation_jqmbf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../metal moving platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-151, -425)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p40xc"]
+_data = {
+"RESET": SubResource("Animation_jqmbf"),
+"move": SubResource("Animation_b44h1")
+}
+
 [node name="Game" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-795.0]
 
 [node name="Player" parent="." instance=ExtResource("1_vrqpk")]
 z_index = 10
@@ -369,7 +407,14 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-983053, 0, 0, -983049, 262144, 0, -786446, 917504, 0, -786444, 917504, 0, -786442, 917504, 0, -786441, 917504, 0, -786440, 917504, 0, -1179662, 917504, 0, -1179660, 917504, 0, -1179659, 917504, 0, -1179658, 917504, 0, -1179657, 917504, 0, -1179656, 917504, 0, -1376269, 0, 0, -1376265, 0, 0, -1638409, 0, 0, -1638413, 0, 0, -917514, 524288, 3, -851978, 524288, 3, -851979, 524288, 3, -917515, 524288, 2, -1835022, 917504, 0, -1900558, 917504, 0, -1966094, 917504, 0, -2031630, 917504, 0, -2097166, 917504, 0, -2162702, 917504, 0, -2162701, 917504, 0, -2162700, 917504, 0, -2162699, 917504, 0, -2162698, 917504, 0, -2097162, 917504, 0, -2031626, 917504, 0, -1966090, 917504, 0, -1900554, 917504, 0, -1900555, 917504, 0, -1900556, 917504, 0, -1966092, 917504, 0, -2031628, 917504, 0, -1835020, 917504, 0, -1835019, 917504, 0, -1835018, 917504, 0, -1835017, 917504, 0, -1900553, 917504, 0, -1966089, 917504, 0, -2031625, 917504, 0, -2097161, 917504, 0, -2097160, 917504, 0, -2031624, 917504, 0, -1966088, 917504, 0, -1900552, 917504, 0, -1835016, 917504, 0, -2162696, 917504, 0, -2228232, 917504, 0, -2228233, 917504, 0, -2228234, 917504, 0, -2228235, 917504, 0, -2228236, 917504, 0, -2228237, 917504, 0, -2228238, 917504, 0, -2228231, 786432, 0, -2097159, 786432, 2, -2031623, 786432, 2, -1900551, 786432, 2, -1769479, 786432, 4)
 
 [node name="metal moving platform" parent="." instance=ExtResource("5_2atfo")]
-position = Vector2(-104, -434)
+position = Vector2(-151, -425)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="metal moving platform"]
+root_node = NodePath("../../metal moving platform2")
+libraries = {
+"": SubResource("AnimationLibrary_p40xc")
+}
+autoplay = "move"
 
 [node name="metal moving platform2" parent="." instance=ExtResource("5_2atfo")]
 position = Vector2(-146, -298)
