@@ -4,17 +4,14 @@ class_name DialogueTest
 static var liste_dialogues = [
 	{
 		"type": "message",
-		"speaker": "Bard",
 		"text": "Salut je suis Azrotho!"
 	},
 	{
 		"type": "message",
-		"speaker": "Bard",
 		"text": "Je suis gentil"
 	},
 	{
 		"type": "message",
-		"speaker": "Bard",
 		"text": "et je sens bon!"
 	}
 ]

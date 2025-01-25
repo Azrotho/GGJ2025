@@ -9,11 +9,15 @@ extends CharacterBody2D
 @onready var death = $Camera2D/Death
 @onready var speedrun = $Camera2D/Speedrun
 @onready var restartButton = $Camera2D/Death/MarginContainer/VBoxContainer/Restart
+@onready var dialogueDection : Area2D = $DialogueDetector
+@onready var heyBubble = $Camera2D/Heybubble
 
 @onready var list_dialogues = {
 	"test": DialogueTest.new(),
 	"test2": DialogueTest2.new(),
-	"finalLevelTest": FinalLevelDialogueTest.new()
+	"finalLevelTest": FinalLevelDialogueTest.new(),
+	"DialogueRobotCasse": RobotCasseDialogue.new(),
+	"DialoguePanneau1": Panneau1Dialogue.new(),
 }
 
 
@@ -92,6 +96,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
+	var isOverlapping = false
+	if(dialogueDection.has_overlapping_areas):
+		for area in dialogueDection.get_overlapping_areas():
+			if area.name.contains("Dialogue"):
+				isOverlapping = true
+	if(isOverlapping):
+		heyBubble.show()
+	else:
+		heyBubble.hide()
+
+
 	if(position.y > -150 and not dead):
 		dead = true
 		speedrun.shouldcontinue = false
@@ -160,6 +175,15 @@ func _input(event: InputEvent) -> void:
 				textIndex += 1
 				actualText = ""
 				timeSinceLastLetter = 0
+	if(event.is_action_pressed("parler")):
+		if(heyBubble.visible):
+			var areaDialogueName = ""
+			for areas in dialogueDection.get_overlapping_areas():
+				if(areas.name.contains("Dialogue")):
+					areaDialogueName = areas.name
+			currentDialogue = list_dialogues[areaDialogueName]
+			inDialogue = true
+
 
 
 func _on_resume_pressed() -> void:

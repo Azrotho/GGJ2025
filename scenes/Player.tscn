@@ -345,15 +345,17 @@ offset_bottom = -54.5714
 text = "0000:00"
 label_settings = SubResource("LabelSettings_1e02l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 60
-shape = SubResource("RectangleShape2D_5sa1l")
-
-[node name="Heybubble" type="Sprite2D" parent="."]
+[node name="Heybubble" type="Sprite2D" parent="Camera2D"]
+visible = false
+z_index = 900
 texture_filter = 1
 position = Vector2(8, -17)
 scale = Vector2(2, 2)
 texture = ExtResource("8_t780f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 60
+shape = SubResource("RectangleShape2D_5sa1l")
 
 [node name="DialogueDetector" type="Area2D" parent="."]
 
