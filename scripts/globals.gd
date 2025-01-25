@@ -3,6 +3,7 @@ extends Node
 static var language: String = "fr"
 static var actual_dialog: String = "test"
 
+var speedrun_time : float = 0
 var have_finish_game : String
 
 func _ready() -> void:

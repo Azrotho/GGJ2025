@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.speedrun_time = 0
 	playButtons.grab_focus()
 
 func _on_play_pressed() -> void:

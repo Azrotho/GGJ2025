@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=33 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
 [ext_resource type="Texture2D" uid="uid://xl56uj7dqg37" path="res://assets/icons/YouPopped.png" id="2_32w6w"]
 [ext_resource type="FontFile" uid="uid://chnwifgi16t1i" path="res://assets/font/Daydream.ttf" id="3_o40ut"]
 [ext_resource type="Texture2D" uid="uid://chpc3jixvmsxj" path="res://assets/sprites/dialoguebubble.png" id="4_iriv4"]
+[ext_resource type="Script" path="res://scripts/speedrun_timer.gd" id="6_wtmk4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1tyn"]
 atlas = ExtResource("1_62pf0")
@@ -180,8 +181,12 @@ shadow_size = 0
 [sub_resource type="LabelSettings" id="LabelSettings_hsb7g"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_1e02l"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5sa1l"]
-size = Vector2(14, 15)
+size = Vector2(13, 13.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hotut")
@@ -288,8 +293,20 @@ scale = Vector2(0.2, 0.2)
 text = "<PLACEHOLDER>"
 label_settings = SubResource("LabelSettings_hsb7g")
 
+[node name="Speedrun" type="Node2D" parent="Camera2D"]
+script = ExtResource("6_wtmk4")
+
+[node name="Label" type="Label" parent="Camera2D/Speedrun"]
+z_index = 60
+offset_left = -141.0
+offset_top = -79.0
+offset_right = -100.0
+offset_bottom = -56.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_1e02l")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+z_index = 60
 shape = SubResource("RectangleShape2D_5sa1l")
 
 [connection signal="pressed" from="Camera2D/Pause/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

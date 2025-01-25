@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var dialogue = $Camera2D/Dialogue	
 @onready var text = $Camera2D/Dialogue/Dialoguebubble/Text
 @onready var death = $Camera2D/Death
+@onready var speedrun = $Camera2D/Speedrun
 
 @onready var list_dialogues = {
 	"test": DialogueTest.new(),
@@ -36,6 +37,7 @@ var deathAnimation = 0
 func _ready() -> void:
 	maxHeight = position.y
 	currentDialogue = list_dialogues["test"]
+	Globals.speedrun_time = 0
 	inDialogue = true
 	if(Globals.have_finish_game == "true"):
 		sprite.play("default_golden")
@@ -50,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		if wasOffFloor:
 			if position.y > maxHeight + 100:
 				dead = true
+				speedrun.shouldcontinue = false
 				if(Globals.have_finish_game == "true"):
 					sprite.play("death_golden")
 				else:
