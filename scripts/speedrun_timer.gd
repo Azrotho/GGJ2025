@@ -14,7 +14,7 @@ func update_ui():
 	var decimal_index = formatted_time.find(".")
 	
 	if decimal_index > 0:
-		formatted_time = formatted_time.left(decimal_index + 3)  # Take only two decimal places
+		formatted_time = formatted_time.left(decimal_index + 2)  # Take only two decimal places
 	
 	Globals.speedrun_time = formatted_time
 		
