@@ -19,6 +19,10 @@ const JUMP_VELOCITY = -300.0
 
 var paused = false
 var inDialogue = false
+var dead = false
+
+var wasOffFloor = false
+var maxHeight
 
 var currentDialogue
 var actualText = ""
@@ -27,14 +31,29 @@ var deltaEveryLetter = 0.1
 var timeSinceLastLetter = 0
 
 func _ready() -> void:
+	maxHeight = position.y
 	currentDialogue = list_dialogues["test"]
 	inDialogue = true
-
 
 func _physics_process(delta: float) -> void:
 	if inDialogue:
 		return
+	if dead:
+		return
 	# Add the gravity.
+	if is_on_floor():
+		if wasOffFloor:
+			if position.y > maxHeight + 100:
+				dead = true
+				sprite.play("death")
+			wasOffFloor = false
+		maxHeight = get_position().y
+	else:
+		wasOffFloor = true
+		if position.y < maxHeight:
+			maxHeight = position.y
+	
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -99,15 +118,16 @@ func _process(_delta: float) -> void:
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		if(textIndex >= currentDialogue.getDialogue().size()-1):
-			textIndex = 0
-			actualText = ""
-			dialogue.hide()
-			inDialogue = false
-		else:
-			textIndex += 1
-			actualText = ""
-			timeSinceLastLetter = 0
+		if(inDialogue):
+			if(textIndex >= currentDialogue.getDialogue().size()-1):
+				textIndex = 0
+				actualText = ""
+				dialogue.hide()
+				inDialogue = false
+			else:
+				textIndex += 1
+				actualText = ""
+				timeSinceLastLetter = 0
 
 
 func _on_resume_pressed() -> void:

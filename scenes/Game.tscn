@@ -15,9 +15,11 @@ sources/1 = SubResource("TileSetAtlasSource_ab8vp")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_vrqpk")]
+position = Vector2(-205, -286)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
+position = Vector2(0, -3)
 tile_set = SubResource("TileSet_blhqe")
 format = 2
-layer_0/tile_data = PackedInt32Array(131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 196606, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0)
+layer_0/tile_data = PackedInt32Array(131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 196606, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, -917521, 1, 0, -851985, 1, 0, -851984, 1, 0, -851983, 1, 0, -1048590, 1, 0, -851982, 1, 0, -1048589, 1, 0, -851981, 1, 0, -851980, 1, 0, -851979, 1, 0, -851978, 1, 0, -851977, 1, 0, -851976, 1, 0, -851975, 1, 0)

@@ -1,9 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=20 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
 [ext_resource type="FontFile" uid="uid://chnwifgi16t1i" path="res://assets/font/Daydream.ttf" id="3_o40ut"]
 [ext_resource type="Texture2D" uid="uid://chpc3jixvmsxj" path="res://assets/sprites/dialoguebubble.png" id="4_iriv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1tyn"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12gic"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5mxq"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyuum"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtoy5"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a5au"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(80, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bvnl"]
 atlas = ExtResource("1_62pf0")
@@ -23,6 +47,29 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1qjo"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1tyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12gic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5mxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyuum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtoy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a5au")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0bvnl")
@@ -61,8 +108,8 @@ script = ExtResource("1_hotut")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s1qjo")
+animation = &"death"
 autoplay = "default"
-frame_progress = 0.387142
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -143,6 +190,7 @@ text = "<PLACEHOLDER>"
 label_settings = SubResource("LabelSettings_hsb7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_5sa1l")
 
 [connection signal="pressed" from="Camera2D/Pause/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
