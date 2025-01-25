@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://by4gn7euws2wl"]
+
+[ext_resource type="Texture2D" uid="uid://heauyiq2hjbx" path="res://assets/sprites/Sprite-0006.png" id="1_ap4a0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swmef"]
+size = Vector2(31, 6)
+
+[node name="metal moving platform" type="AnimatableBody2D"]
+z_index = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ap4a0")
+region_enabled = true
+region_rect = Rect2(79.0331, 244.396, 36.7991, 9.49652)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_swmef")
+one_way_collision = true
