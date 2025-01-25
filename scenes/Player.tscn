@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=21 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
+[ext_resource type="Texture2D" uid="uid://xl56uj7dqg37" path="res://assets/icons/YouPopped.png" id="2_32w6w"]
 [ext_resource type="FontFile" uid="uid://chnwifgi16t1i" path="res://assets/font/Daydream.ttf" id="3_o40ut"]
 [ext_resource type="Texture2D" uid="uid://chpc3jixvmsxj" path="res://assets/sprites/dialoguebubble.png" id="4_iriv4"]
 
@@ -106,6 +107,7 @@ size = Vector2(14, 15)
 script = ExtResource("1_hotut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 4
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s1qjo")
 animation = &"death"
@@ -113,6 +115,23 @@ autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Death" type="Node2D" parent="Camera2D"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Death"]
+z_index = 1
+offset_left = -144.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = 81.0
+color = Color(0.0941176, 0.0941176, 0.0941176, 0.772549)
+
+[node name="YouPopped" type="Sprite2D" parent="Camera2D/Death"]
+z_index = 20
+position = Vector2(0, -43.84)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_32w6w")
 
 [node name="Pause" type="ColorRect" parent="Camera2D"]
 visible = false

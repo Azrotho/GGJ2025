@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var resumeButtons = $Camera2D/Pause/MarginContainer/VBoxContainer/Resume
 @onready var dialogue = $Camera2D/Dialogue	
 @onready var text = $Camera2D/Dialogue/Dialoguebubble/Text
+@onready var death = $Camera2D/Death
 
 @onready var list_dialogues = {
 	"test": DialogueTest.new(),
@@ -29,6 +30,8 @@ var actualText = ""
 var textIndex = 0
 var deltaEveryLetter = 0.1
 var timeSinceLastLetter = 0
+
+var deathAnimation = 0
 
 func _ready() -> void:
 	maxHeight = position.y
@@ -76,6 +79,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
+	if(dead):
+		death.show()
+		deathAnimation += _delta
+		if(deathAnimation >= 3):
+			deathAnimation = 3
+		death.modulate.a = deathAnimation / 3
+
+
 	if Input.is_action_just_pressed("pause"):
 		paused = !paused
 		resumeButtons.grab_focus()
