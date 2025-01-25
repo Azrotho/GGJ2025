@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=31 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
@@ -30,6 +30,30 @@ region = Rect2(64, 32, 16, 16)
 atlas = ExtResource("1_62pf0")
 region = Rect2(80, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnrc8"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xudt2"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlc6y"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtewn"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl32g"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpmv8"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(80, 48, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bvnl"]
 atlas = ExtResource("1_62pf0")
 region = Rect2(0, 0, 16, 16)
@@ -45,6 +69,22 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2adun"]
 atlas = ExtResource("1_62pf0")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svh2n"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ay8f"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubl05"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upi40"]
+atlas = ExtResource("1_62pf0")
+region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1qjo"]
 animations = [{
@@ -73,6 +113,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qnrc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xudt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlc6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtewn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl32g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpmv8")
+}],
+"loop": false,
+"name": &"death_golden",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0bvnl")
 }, {
 "duration": 1.0,
@@ -86,6 +149,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svh2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ay8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubl05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upi40")
+}],
+"loop": true,
+"name": &"default_golden",
 "speed": 7.0
 }]
 
@@ -110,7 +190,7 @@ script = ExtResource("1_hotut")
 z_index = 4
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s1qjo")
-animation = &"death"
+animation = &"death_golden"
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="."]
