@@ -14,8 +14,6 @@ extends CharacterBody2D
 
 @onready var list_dialogues = {
 	"test": DialogueTest.new(),
-	"test2": DialogueTest2.new(),
-	"finalLevelTest": FinalLevelDialogueTest.new(),
 	"DialogueRobotCasse": RobotCasseDialogue.new(),
 	"DialoguePanneau1": Panneau1Dialogue.new(),
 }
@@ -34,7 +32,7 @@ var maxHeight
 var currentDialogue
 var actualText = ""
 var textIndex = 0
-var deltaEveryLetter = 0.1
+var deltaEveryLetter = 0.05
 var timeSinceLastLetter = 0
 
 var deathAnimation = 0
