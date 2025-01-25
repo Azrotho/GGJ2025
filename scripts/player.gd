@@ -39,6 +39,8 @@ func _ready() -> void:
 	currentDialogue = list_dialogues["test"]
 	Globals.speedrun_time = 0
 	inDialogue = true
+	if(Globals.have_finish_game == "false"):
+		speedrun.hide()
 	if(Globals.have_finish_game == "true"):
 		sprite.play("default_golden")
 
