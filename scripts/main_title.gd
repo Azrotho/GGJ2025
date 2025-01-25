@@ -2,10 +2,11 @@ extends Control
 
 @onready var credits = preload("res://scenes/Credits.tscn")
 @onready var game = preload("res://scenes/Game.tscn")
+@onready var playButtons = $MarginContainer/VBoxContainer/Play
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	playButtons.grab_focus()
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(game)

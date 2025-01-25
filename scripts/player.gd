@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var pause = $Camera2D/Pause
+@onready var resumeButtons = $Camera2D/Pause/MarginContainer/VBoxContainer/Resume
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -36,6 +37,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		paused = !paused
+		resumeButtons.grab_focus()
 	if paused:
 		pause.show()
 		Engine.time_scale = 0
@@ -43,3 +45,10 @@ func _process(_delta: float) -> void:
 		pause.hide()
 		Engine.time_scale = 1
 		
+
+
+func _on_resume_pressed() -> void:
+	paused = false
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/MainTitle.tscn")
