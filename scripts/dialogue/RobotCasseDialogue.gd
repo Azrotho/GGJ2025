@@ -4,19 +4,19 @@ class_name RobotCasseDialogue
 static var liste_dialogues = [
 	{
 		"type": "message",
-		"text": "Hey kiddo! \n It's dangerous to go alone!"
+		"text": "Hey kiddo! \n It's dangerous to go alone !"
 	},
 	{
 		"type": "message",
-		"text": "This tower is very high, \n be careful!"
+		"text": "This tower is very high, \n be careful !"
 	},
 	{
 		"type": "message",
-		"text": "If you fall like me, \n you'll be in trouble!"
+		"text": "And this acid ocean made me \n unable to climb it back."
 	},
 	{
 		"type": "message",
-		"text": "Your bubble can pop if you fall \n from too high!"
+		"text": "Good luck tiny fish..."
 	}
 ]
 
