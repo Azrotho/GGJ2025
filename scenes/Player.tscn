@@ -218,6 +218,35 @@ position = Vector2(0, -43.84)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_32w6w")
 
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Death"]
+z_index = 999
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = 13.0
+offset_right = 291.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Camera2D/Death/MarginContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="Camera2D/Death/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Restart"
+
+[node name="Back" type="Button" parent="Camera2D/Death/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back to main menu"
+
 [node name="Pause" type="ColorRect" parent="Camera2D"]
 visible = false
 z_index = 15
@@ -316,5 +345,7 @@ label_settings = SubResource("LabelSettings_1e02l")
 z_index = 60
 shape = SubResource("RectangleShape2D_5sa1l")
 
+[connection signal="pressed" from="Camera2D/Death/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Camera2D/Death/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Camera2D/Pause/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Camera2D/Pause/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

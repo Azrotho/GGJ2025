@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var text = $Camera2D/Dialogue/Dialoguebubble/Text
 @onready var death = $Camera2D/Death
 @onready var speedrun = $Camera2D/Speedrun
+@onready var restartButton = $Camera2D/Death/MarginContainer/VBoxContainer/Restart
 
 @onready var list_dialogues = {
 	"test": DialogueTest.new(),
@@ -60,6 +61,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					sprite.play("death")
 				Globals.save()
+				restartButton.grab_focus()
 			wasOffFloor = false
 		maxHeight = get_position().y
 	else:
@@ -97,6 +99,7 @@ func _process(_delta: float) -> void:
 			sprite.play("death_golden")
 		else:
 			sprite.play("death")
+		restartButton.grab_focus()
 	if(dead):
 		death.show()
 		deathAnimation += _delta
@@ -164,3 +167,7 @@ func _on_resume_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MainTitle.tscn")
+
+
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Game.tscn")
