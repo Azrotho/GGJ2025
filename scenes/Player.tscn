@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=36 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://chpc3jixvmsxj" path="res://assets/sprites/dialoguebubble.png" id="4_iriv4"]
 [ext_resource type="Script" path="res://scripts/speedrun_timer.gd" id="6_wtmk4"]
 [ext_resource type="Texture2D" uid="uid://y218xi2ugmgo" path="res://assets/sprites/timer.png" id="7_fd254"]
+[ext_resource type="Texture2D" uid="uid://4ys1hc0wawh5" path="res://assets/sprites/heybubble.png" id="8_t780f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1tyn"]
 atlas = ExtResource("1_62pf0")
@@ -189,6 +190,9 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5sa1l"]
 size = Vector2(13, 13.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiitl"]
+size = Vector2(21, 20)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hotut")
 
@@ -344,6 +348,19 @@ label_settings = SubResource("LabelSettings_1e02l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 60
 shape = SubResource("RectangleShape2D_5sa1l")
+
+[node name="Heybubble" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -17)
+scale = Vector2(2, 2)
+texture = ExtResource("8_t780f")
+
+[node name="DialogueDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueDetector"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_iiitl")
+debug_color = Color(0.852616, 0, 0.425221, 0.42)
 
 [connection signal="pressed" from="Camera2D/Death/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Camera2D/Death/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
