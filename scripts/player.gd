@@ -4,14 +4,36 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var pause = $Camera2D/Pause
 @onready var resumeButtons = $Camera2D/Pause/MarginContainer/VBoxContainer/Resume
+@onready var dialogue = $Camera2D/Dialogue	
+@onready var text = $Camera2D/Dialogue/Dialoguebubble/Text
+
+@onready var list_dialogues = {
+	"test": DialogueTest.new(),
+	"test2": DialogueTest2.new(),
+	"finalLevelTest": FinalLevelDialogueTest.new()
+}
+
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 var paused = false
+var inDialogue = false
+
+var currentDialogue
+var actualText = ""
+var textIndex = 0
+var deltaEveryLetter = 0.1
+var timeSinceLastLetter = 0
+
+func _ready() -> void:
+	currentDialogue = list_dialogues["test"]
+	inDialogue = true
 
 
 func _physics_process(delta: float) -> void:
+	if inDialogue:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -44,7 +66,48 @@ func _process(_delta: float) -> void:
 	else:
 		pause.hide()
 		Engine.time_scale = 1
+	
+	if inDialogue:
+		text.text = actualText
+		dialogue.show()
+		Engine.time_scale = 1
+		if(currentDialogue.getDialogue()[textIndex]["type"] == "message"):
+			if(timeSinceLastLetter >= deltaEveryLetter):
+				text.text = actualText
+				if(len(actualText) < len(currentDialogue.getDialogue()[textIndex]["text"])):
+					actualText += currentDialogue.getDialogue()[textIndex]["text"][len(actualText)]
+				timeSinceLastLetter = 0
+			else:
+				timeSinceLastLetter += _delta
+		if(currentDialogue.getDialogue()[textIndex]["type"] == "end"):
+			inDialogue = false
+			dialogue.hide()
+			Engine.time_scale = 1
+		if(currentDialogue.getDialogue()[textIndex]["type"] != "message" and currentDialogue.getDialogue()[textIndex]["type"] != "end"):
+			if(currentDialogue.getDialogue().size() > textIndex):
+				textIndex = 0
+				actualText = ""
+				dialogue.hide()
+				inDialogue = false
+			else:
+				textIndex += 1
+				actualText = ""
+				timeSinceLastLetter = 0
+	else:
+		dialogue.hide()
+		Engine.time_scale = 1
 		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		if(textIndex >= currentDialogue.getDialogue().size()-1):
+			textIndex = 0
+			actualText = ""
+			dialogue.hide()
+			inDialogue = false
+		else:
+			textIndex += 1
+			actualText = ""
+			timeSinceLastLetter = 0
 
 
 func _on_resume_pressed() -> void:
