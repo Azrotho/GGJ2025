@@ -90,6 +90,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
+	if(position.y > -150 and not dead):
+		dead = true
+		speedrun.shouldcontinue = false
+		if(Globals.have_finish_game == "true"):
+			sprite.play("death_golden")
+		else:
+			sprite.play("death")
 	if(dead):
 		death.show()
 		deathAnimation += _delta

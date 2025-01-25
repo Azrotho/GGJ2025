@@ -196,7 +196,6 @@ script = ExtResource("1_hotut")
 z_index = 4
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s1qjo")
-animation = &"death_golden"
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="."]
