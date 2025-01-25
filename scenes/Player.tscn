@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=11 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
+[ext_resource type="FontFile" uid="uid://chnwifgi16t1i" path="res://assets/font/Daydream.ttf" id="3_o40ut"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bvnl"]
 atlas = ExtResource("1_62pf0")
@@ -39,6 +40,10 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_qyegl"]
+font = ExtResource("3_o40ut")
+font_size = 20
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5sa1l"]
 size = Vector2(14, 15)
 
@@ -54,6 +59,25 @@ frame_progress = 0.387142
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 limit_bottom = 120
+
+[node name="Pause" type="ColorRect" parent="Camera2D"]
+z_index = 10
+offset_left = -144.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 11
+color = Color(0.266667, 0.266667, 0.266667, 0.470588)
+
+[node name="Label" type="Label" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 26.0
+offset_right = 195.0
+offset_bottom = 53.0
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_qyegl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5sa1l")
