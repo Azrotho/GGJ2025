@@ -70,7 +70,7 @@ static var liste_dialogues = [
 	{
 		"type": "message",
 		"text": "It was a joke\nI have the answer!"
-	}
+	},
 	{
 		"type": "message",
 		"text": "The meaning of life is..."
@@ -133,7 +133,7 @@ static var liste_dialogues = [
 	},
 	{
 		"type": "message",
-		"text": "i think i have an idea\”"
+		"text": "i think i have an idea"
 	},
 	{
 		"type": "message",
