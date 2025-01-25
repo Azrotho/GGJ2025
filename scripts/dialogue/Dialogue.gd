@@ -3,8 +3,6 @@ class_name Dialogue
 
 @onready var list_dialogues = {
 	"test": DialogueTest.new(),
-	"test2": DialogueTest2.new(),
-	"finalLevelTest": FinalLevelDialogueTest.new(),
 	"robotcasse": RobotCasseDialogue.new()
 }
 
