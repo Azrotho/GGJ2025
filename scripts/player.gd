@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 			if position.y > maxHeight + 100:
 				dead = true
 				sprite.play("death")
+				Globals.save()
 			wasOffFloor = false
 		maxHeight = get_position().y
 	else:
