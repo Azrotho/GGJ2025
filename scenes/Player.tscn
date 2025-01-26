@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bw8m1nn8wowg"]
+[gd_scene load_steps=37 format=3 uid="uid://bw8m1nn8wowg"]
 
 [ext_resource type="Texture2D" uid="uid://63uvao6b32ue" path="res://assets/sprites/poisson anime.png" id="1_62pf0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hotut"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://chpc3jixvmsxj" path="res://assets/sprites/dialoguebubble.png" id="4_iriv4"]
 [ext_resource type="Script" path="res://scripts/speedrun_timer.gd" id="6_wtmk4"]
 [ext_resource type="Texture2D" uid="uid://y218xi2ugmgo" path="res://assets/sprites/timer.png" id="7_fd254"]
+[ext_resource type="FontFile" uid="uid://t0vfloe6cpwg" path="res://assets/font/batFont.ttf" id="8_4lwhh"]
 [ext_resource type="Texture2D" uid="uid://4ys1hc0wawh5" path="res://assets/sprites/heybubble.png" id="8_t780f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1tyn"]
@@ -181,9 +182,11 @@ font_size = 20
 shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_hsb7g"]
+font = ExtResource("8_4lwhh")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1e02l"]
+font = ExtResource("8_4lwhh")
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -300,7 +303,6 @@ layout_mode = 2
 text = "Back to main menu"
 
 [node name="Dialogue" type="ColorRect" parent="Camera2D"]
-visible = false
 z_index = 12
 offset_left = -144.0
 offset_top = -81.0
@@ -319,9 +321,9 @@ texture = ExtResource("4_iriv4")
 [node name="Text" type="Label" parent="Camera2D/Dialogue/Dialoguebubble"]
 z_index = 14
 offset_left = -26.2038
-offset_top = -4.86038
-offset_right = 14.7962
-offset_bottom = 18.1396
+offset_top = -3.41132
+offset_right = 93.7962
+offset_bottom = 19.5887
 scale = Vector2(0.2, 0.2)
 text = "<PLACEHOLDER>"
 label_settings = SubResource("LabelSettings_hsb7g")
@@ -338,10 +340,10 @@ texture = ExtResource("7_fd254")
 
 [node name="Label" type="Label" parent="Camera2D/Speedrun"]
 z_index = 60
-offset_left = -136.714
-offset_top = -77.5714
-offset_right = -76.7143
-offset_bottom = -54.5714
+offset_left = -138.143
+offset_top = -70.4285
+offset_right = -74.1426
+offset_bottom = -47.4285
 text = "0000:00"
 label_settings = SubResource("LabelSettings_1e02l")
 
