@@ -60,7 +60,7 @@ func _on_music_zone_2_body_exited(_body: Node2D) -> void:
 func _on_music_zone_3_body_entered(_body: Node2D) -> void:
 	# Set target volume to fade in music 3
 	if(_body.name == "Player"):
-		target_volume_music_three = -9
+		target_volume_music_three = -12
 
 func _on_music_zone_3_body_exited(_body: Node2D) -> void:
 	# Set target volume to fade out music 3
