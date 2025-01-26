@@ -1,17 +1,18 @@
-[gd_scene load_steps=59 format=3 uid="uid://deqt3vig4oe3w"]
+[gd_scene load_steps=60 format=3 uid="uid://deqt3vig4oe3w"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_it4b4"]
 [ext_resource type="PackedScene" uid="uid://bw8m1nn8wowg" path="res://scenes/Player.tscn" id="1_vrqpk"]
 [ext_resource type="Texture2D" uid="uid://heauyiq2hjbx" path="res://assets/sprites/Sprite-0006.png" id="2_aqlxo"]
 [ext_resource type="Texture2D" uid="uid://c0vs3h67y5cgu" path="res://assets/sprites/debug.png" id="3_xufg7"]
 [ext_resource type="Texture2D" uid="uid://pxbbe1riorpe" path="res://assets/sprites/Sprite-0001.png" id="4_pecbh"]
-[ext_resource type="PackedScene" uid="uid://rtd43mvtf5if" path="res://scenes/Plateforme.tscn" id="5_2atfo"]
-[ext_resource type="PackedScene" uid="uid://bbc1nt5cvwr8o" path="res://scenes/woodplatform.tscn" id="6_elbc2"]
-[ext_resource type="PackedScene" uid="uid://b8rblfcm6apbo" path="res://scenes/RotPlatform.tscn" id="7_it6id"]
+[ext_resource type="PackedScene" path="res://scenes/Plateforme.tscn" id="5_2atfo"]
+[ext_resource type="PackedScene" path="res://scenes/woodplatform.tscn" id="6_elbc2"]
+[ext_resource type="PackedScene" path="res://scenes/RotPlatform.tscn" id="7_it6id"]
 [ext_resource type="PackedScene" uid="uid://oa6qa34y6vxx" path="res://scenes/Pique.tscn" id="8_lh8aq"]
 [ext_resource type="AudioStream" uid="uid://bhaxbjoxifgn4" path="res://assets/musics/zone1.ogg" id="10_f3iyr"]
+[ext_resource type="AudioStream" uid="uid://dr5jxnvnsc006" path="res://assets/musics/zone2.ogg" id="11_841tf"]
 [ext_resource type="AudioStream" uid="uid://b54tx3ei30sgc" path="res://assets/musics/zone3.mp3" id="11_rif1s"]
-[ext_resource type="PackedScene" uid="uid://xoaqxmld3rgw" path="res://scenes/ionicplatform.tscn" id="12_1hwa0"]
+[ext_resource type="PackedScene" path="res://scenes/ionicplatform.tscn" id="12_1hwa0"]
 [ext_resource type="Texture2D" uid="uid://b2hbwualkq0y4" path="res://assets/sprites/portal.png" id="13_kxm21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yvub"]
@@ -1080,7 +1081,6 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="MusicZone1" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicZone1"]
 position = Vector2(214, -834.531)
@@ -1088,7 +1088,6 @@ shape = SubResource("RectangleShape2D_ixvlq")
 debug_color = Color(0.662745, 0.513726, 0, 0.847059)
 
 [node name="MusicZone2" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicZone2"]
 position = Vector2(214, -2354)
@@ -1096,7 +1095,6 @@ shape = SubResource("RectangleShape2D_s8vjx")
 debug_color = Color(0.975379, 0.10657, 0.30202, 0.847059)
 
 [node name="MusicZone3" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicZone3"]
 position = Vector2(214, -3789.47)
@@ -1108,7 +1106,7 @@ stream = ExtResource("10_f3iyr")
 parameters/looping = true
 
 [node name="MusicTwo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_rif1s")
+stream = ExtResource("11_841tf")
 
 [node name="MusicThree" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_rif1s")
