@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if is_on_floor():
 		if wasOffFloor:
-			if position.y > maxHeight + 128:
+			if position.y > maxHeight +132:
 				dead = true
 				paused = false
 				speedrun.shouldcontinue = false
