@@ -45,9 +45,9 @@ var deathAnimation = 0
 
 func _ready() -> void:
 	maxHeight = position.y
-	currentDialogue = list_dialogues["test"]
+	#currentDialogue = list_dialogues["test"]
 	Globals.speedrun_time = 0
-	inDialogue = true
+	#inDialogue = true
 	if(Globals.have_finish_game == "false"):
 		speedrun.hide()
 	if(Globals.have_finish_game == "true"):
