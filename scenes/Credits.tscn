@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://wkikbog3jmyc" path="res://assets/font/FOT_Yuruka_Std.ttf" id="1_f6cp0"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_squkr"]
 [ext_resource type="Texture2D" uid="uid://dfgx8xytwj2b0" path="res://assets/sprites/Azrotho.png" id="2_ltnpd"]
-[ext_resource type="Texture2D" uid="uid://cvfc4lcr6mmo2" path="res://assets/sprites/Shirocku.png" id="3_1pssa"]
+[ext_resource type="Texture2D" uid="uid://uv8ecwij84se" path="res://assets/sprites/Shirocku.png" id="3_1pssa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fhvfo"]
 font = ExtResource("1_f6cp0")

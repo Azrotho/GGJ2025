@@ -11,3 +11,17 @@ func _ready() -> void:
 
 func save():
 	SaveAndLoad.save(have_finish_game)
+
+
+@warning_ignore("unused_signal")
+signal enter_music_zone1()
+@warning_ignore("unused_signal")
+signal exit_music_zone1()
+@warning_ignore("unused_signal")
+signal enter_music_zone2()
+@warning_ignore("unused_signal")
+signal exit_music_zone2()
+@warning_ignore("unused_signal")
+signal enter_music_zone3()
+@warning_ignore("unused_signal")
+signal exit_music_zone3()
