@@ -104,6 +104,16 @@ func _process(_delta: float) -> void:
 		for area in dialogueDection.get_overlapping_areas():
 			if area.name.contains("Dialogue"):
 				isOverlapping = true
+			if area.name.contains("Spike"):
+				if(!dead):
+					dead = true
+					paused = false
+					speedrun.shouldcontinue = false
+					if(Globals.have_finish_game == "true"):
+						sprite.play("death_golden")
+					else:
+						sprite.play("death")
+					restartButton.grab_focus()
 	if(isOverlapping):
 		heyBubble.show()
 	else:
@@ -186,16 +196,6 @@ func _input(event: InputEvent) -> void:
 			for areas in dialogueDection.get_overlapping_areas():
 				if(areas.name.contains("Dialogue")):
 					areaDialogueName = areas.name
-				if(areas.name.contains("Spike")):
-					dead = true
-					paused = false
-					speedrun.shouldcontinue = false
-					if(Globals.have_finish_game == "true"):
-						sprite.play("death_golden")
-					else:
-						sprite.play("death")
-					Globals.save()
-					restartButton.grab_focus()
 			currentDialogue = list_dialogues[areaDialogueName]
 			inDialogue = true
 

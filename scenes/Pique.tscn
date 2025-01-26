@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cke5ehhlgo5mb" path="res://assets/sprites/Spike.png" id="1_6wm0i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n2vcq"]
-radius = 5.0
+radius = 7.0
 
 [node name="Spike" type="Sprite2D"]
 texture = ExtResource("1_6wm0i")
