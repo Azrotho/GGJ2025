@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @onready var sprite = $AnimatedSprite2D
 @onready var pause = $Camera2D/Pause
 @onready var resumeButtons = $Camera2D/Pause/MarginContainer/VBoxContainer/Resume
@@ -61,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		if wasOffFloor:
 			if position.y > maxHeight + 128:
 				dead = true
+				paused = false
 				speedrun.shouldcontinue = false
 				if(Globals.have_finish_game == "true"):
 					sprite.play("death_golden")
@@ -111,6 +111,7 @@ func _process(_delta: float) -> void:
 
 	if(position.y > -150 and not dead):
 		dead = true
+		paused = false
 		speedrun.shouldcontinue = false
 		if(Globals.have_finish_game == "true"):
 			sprite.play("death_golden")
@@ -125,7 +126,7 @@ func _process(_delta: float) -> void:
 		death.modulate.a = deathAnimation / 3
 
 
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and not dead and not inDialogue:
 		paused = !paused
 		resumeButtons.grab_focus()
 	if paused:
