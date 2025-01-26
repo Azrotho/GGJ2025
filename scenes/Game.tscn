@@ -620,23 +620,6 @@ texture = ExtResource("2_aqlxo")
 [sub_resource type="TileSet" id="TileSet_kfvtb"]
 sources/0 = SubResource("TileSetAtlasSource_c5xtu")
 
-[sub_resource type="Animation" id="Animation_srjrw"]
-resource_name = "new_animation"
-length = 14.5
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5, 4.5, 5.5, 6.5, 8.5, 9.5, 10.5, 11.5, 14, 14.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-17, -2816), Vector2(-17, -2816), Vector2(-17, -2912), Vector2(-17, -2912), Vector2(-57, -2912), Vector2(-57, -2912), Vector2(-57, -2975), Vector2(-57, -2975), Vector2(-16, -2975), Vector2(-16, -2975), Vector2(-16, -3052), Vector2(-16, -3052)]
-}
-
 [sub_resource type="Animation" id="Animation_qsrv3"]
 length = 0.001
 tracks/0/type = "value"
@@ -652,10 +635,27 @@ tracks/0/keys = {
 "values": [Vector2(-17, -2816)]
 }
 
+[sub_resource type="Animation" id="Animation_uq5hl"]
+resource_name = "new_animation"
+length = 7.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 1.73333, 2.23333, 2.73333, 3.23333, 4.23333, 4.73333, 5.23333, 5.73333, 7, 7.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, -2816), Vector2(-17, -2816), Vector2(-17, -2912), Vector2(-17, -2912), Vector2(-57, -2912), Vector2(-57, -2912), Vector2(-57, -2975), Vector2(-57, -2975), Vector2(-17, -2975), Vector2(-17, -2975), Vector2(-17, -3052), Vector2(-17, -3052)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jfbd1"]
 _data = {
 "RESET": SubResource("Animation_qsrv3"),
-"new_animation": SubResource("Animation_srjrw")
+"new_animation": SubResource("Animation_uq5hl")
 }
 
 [node name="Game" type="Node2D"]
@@ -664,7 +664,7 @@ metadata/_edit_vertical_guides_ = [-795.0]
 
 [node name="Player" parent="." instance=ExtResource("1_vrqpk")]
 z_index = 10
-position = Vector2(-16, -2831)
+position = Vector2(18, -3083)
 
 [node name="Midground" type="TileMap" parent="."]
 z_index = 3
