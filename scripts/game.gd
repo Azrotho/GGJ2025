@@ -16,7 +16,7 @@ func _ready() -> void:
 var target_volume_music_one = -9
 var target_volume_music_two = -96
 var target_volume_music_three = -96
-var fade_speed = 3.0
+var fade_speed = 8.0
 
 func _process(delta: float) -> void:
 	if MusicOne.volume_db < target_volume_music_one:
@@ -37,29 +37,32 @@ func _process(delta: float) -> void:
 @warning_ignore("unused_signal")
 func _on_music_zone_1_body_entered(_body: Node2D) -> void:
 	# Set target volume to fade in music 1
-	target_volume_music_one = -9
+	if(_body.name == "Player"):
+		target_volume_music_one = -9
 
 @warning_ignore("unused_signal")
 func _on_music_zone_1_body_exited(_body: Node2D) -> void:
 	# Set target volume to fade out music 1
-	target_volume_music_one = -96
+	if(_body.name == "Player"):
+		target_volume_music_one = -96
 
 @warning_ignore("unused_signal")
 func _on_music_zone_2_body_entered(_body: Node2D) -> void:
 	# Set target volume to fade in music 2
-	target_volume_music_two = -9
+	if(_body.name == "Player"):
+		target_volume_music_two = -9
 
-@warning_ignore("unused_signal")
 func _on_music_zone_2_body_exited(_body: Node2D) -> void:
 	# Set target volume to fade out music 2
-	target_volume_music_two = -96
+	if(_body.name == "Player"):
+		target_volume_music_two = -96
 
-@warning_ignore("unused_signal")
 func _on_music_zone_3_body_entered(_body: Node2D) -> void:
 	# Set target volume to fade in music 3
-	target_volume_music_three = -9
+	if(_body.name == "Player"):
+		target_volume_music_three = -9
 
-@warning_ignore("unused_signal")
 func _on_music_zone_3_body_exited(_body: Node2D) -> void:
 	# Set target volume to fade out music 3
-	target_volume_music_three = -96
+	if(_body.name == "Player"):
+		target_volume_music_three = -96
