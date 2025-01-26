@@ -1080,6 +1080,7 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="MusicZone1" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicZone1"]
 position = Vector2(214, -834.531)
@@ -1095,6 +1096,7 @@ shape = SubResource("RectangleShape2D_s8vjx")
 debug_color = Color(0.975379, 0.10657, 0.30202, 0.847059)
 
 [node name="MusicZone3" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicZone3"]
 position = Vector2(214, -3789.47)
