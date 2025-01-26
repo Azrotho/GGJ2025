@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://oa6qa34y6vxx" path="res://scenes/Pique.tscn" id="8_lh8aq"]
 [ext_resource type="AudioStream" uid="uid://bhaxbjoxifgn4" path="res://assets/musics/zone1.ogg" id="10_f3iyr"]
 [ext_resource type="AudioStream" uid="uid://dr5jxnvnsc006" path="res://assets/musics/zone2.ogg" id="11_841tf"]
-[ext_resource type="AudioStream" uid="uid://b54tx3ei30sgc" path="res://assets/musics/zone3.mp3" id="11_rif1s"]
 [ext_resource type="PackedScene" path="res://scenes/ionicplatform.tscn" id="12_1hwa0"]
+[ext_resource type="AudioStream" uid="uid://d2jslmekaecrj" path="res://assets/musics/zone3.ogg" id="12_4egmg"]
 [ext_resource type="Texture2D" uid="uid://b2hbwualkq0y4" path="res://assets/sprites/portal.png" id="13_kxm21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yvub"]
@@ -1109,7 +1109,7 @@ parameters/looping = true
 stream = ExtResource("11_841tf")
 
 [node name="MusicThree" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_rif1s")
+stream = ExtResource("12_4egmg")
 volume_db = -9.0
 parameters/looping = true
 
