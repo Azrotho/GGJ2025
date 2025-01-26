@@ -198,6 +198,11 @@ func _input(event: InputEvent) -> void:
 			for areas in dialogueDection.get_overlapping_areas():
 				if(areas.name.contains("Dialogue")):
 					areaDialogueName = areas.name
+			if(areaDialogueName == "DialogueFin"):
+				Globals.have_finish_game = "true"
+				Globals.save()
+				get_tree().change_scene_to_file("res://scenes/FinalScene.tscn")
+				return
 			currentDialogue = list_dialogues[areaDialogueName]
 			inDialogue = true
 

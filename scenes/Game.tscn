@@ -1,17 +1,17 @@
-[gd_scene load_steps=56 format=3 uid="uid://deqt3vig4oe3w"]
+[gd_scene load_steps=57 format=3 uid="uid://deqt3vig4oe3w"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_it4b4"]
 [ext_resource type="PackedScene" uid="uid://bw8m1nn8wowg" path="res://scenes/Player.tscn" id="1_vrqpk"]
 [ext_resource type="Texture2D" uid="uid://heauyiq2hjbx" path="res://assets/sprites/Sprite-0006.png" id="2_aqlxo"]
 [ext_resource type="Texture2D" uid="uid://c0vs3h67y5cgu" path="res://assets/sprites/debug.png" id="3_xufg7"]
 [ext_resource type="Texture2D" uid="uid://pxbbe1riorpe" path="res://assets/sprites/Sprite-0001.png" id="4_pecbh"]
-[ext_resource type="PackedScene" uid="uid://rtd43mvtf5if" path="res://scenes/Plateforme.tscn" id="5_2atfo"]
-[ext_resource type="PackedScene" uid="uid://bbc1nt5cvwr8o" path="res://scenes/woodplatform.tscn" id="6_elbc2"]
-[ext_resource type="PackedScene" uid="uid://b8rblfcm6apbo" path="res://scenes/RotPlatform.tscn" id="7_it6id"]
+[ext_resource type="PackedScene" path="res://scenes/Plateforme.tscn" id="5_2atfo"]
+[ext_resource type="PackedScene" path="res://scenes/woodplatform.tscn" id="6_elbc2"]
+[ext_resource type="PackedScene" path="res://scenes/RotPlatform.tscn" id="7_it6id"]
 [ext_resource type="PackedScene" uid="uid://oa6qa34y6vxx" path="res://scenes/Pique.tscn" id="8_lh8aq"]
 [ext_resource type="AudioStream" uid="uid://bhaxbjoxifgn4" path="res://assets/musics/zone1.ogg" id="10_f3iyr"]
 [ext_resource type="AudioStream" uid="uid://b54tx3ei30sgc" path="res://assets/musics/zone3.mp3" id="11_rif1s"]
-[ext_resource type="PackedScene" uid="uid://xoaqxmld3rgw" path="res://scenes/ionicplatform.tscn" id="12_1hwa0"]
+[ext_resource type="PackedScene" path="res://scenes/ionicplatform.tscn" id="12_1hwa0"]
 [ext_resource type="Texture2D" uid="uid://b2hbwualkq0y4" path="res://assets/sprites/portal.png" id="13_kxm21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yvub"]
@@ -828,6 +828,9 @@ texture = ExtResource("13_kxm21")
 [sub_resource type="TileSet" id="TileSet_tdync"]
 sources/0 = SubResource("TileSetAtlasSource_xwt51")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_55bry"]
+radius = 42.0119
+
 [node name="Game" type="Node2D"]
 position = Vector2(-6, 0)
 script = ExtResource("1_it4b4")
@@ -835,7 +838,7 @@ metadata/_edit_vertical_guides_ = [-795.0]
 
 [node name="Player" parent="." instance=ExtResource("1_vrqpk")]
 z_index = 10
-position = Vector2(48, -3821)
+position = Vector2(378, -4643)
 
 [node name="Midground" type="TileMap" parent="."]
 z_index = 3
@@ -1103,6 +1106,12 @@ autoplay = "new_animation"
 tile_set = SubResource("TileSet_tdync")
 format = 2
 layer_0/tile_data = PackedInt32Array(-19398617, 0, 0)
+
+[node name="DialogueFin" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueFin"]
+position = Vector2(631, -4726)
+shape = SubResource("CircleShape2D_55bry")
 
 [connection signal="body_entered" from="MusicZone1" to="." method="_on_music_zone_1_body_entered"]
 [connection signal="body_exited" from="MusicZone1" to="." method="_on_music_zone_1_body_exited"]
