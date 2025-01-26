@@ -48,3 +48,12 @@ offset_bottom = 87.0
 text = "<PLACEHOLDER>"
 label_settings = SubResource("LabelSettings_q6e6v")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Camera2D"]
+offset_left = -562.0
+offset_top = -316.0
+offset_right = -371.0
+offset_bottom = -269.0
+text = "Back to main menu"
+
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
