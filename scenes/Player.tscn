@@ -303,6 +303,7 @@ layout_mode = 2
 text = "Back to main menu"
 
 [node name="Dialogue" type="ColorRect" parent="Camera2D"]
+visible = false
 z_index = 12
 offset_left = -144.0
 offset_top = -81.0
