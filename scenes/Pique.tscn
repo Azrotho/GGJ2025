@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://oa6qa34y6vxx"]
+
+[ext_resource type="Texture2D" uid="uid://cke5ehhlgo5mb" path="res://assets/sprites/Spike.png" id="1_6wm0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2vcq"]
+radius = 5.0
+
+[node name="Spike" type="Sprite2D"]
+texture = ExtResource("1_6wm0i")
+
+[node name="Spike" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_n2vcq")

@@ -185,6 +185,16 @@ func _input(event: InputEvent) -> void:
 			for areas in dialogueDection.get_overlapping_areas():
 				if(areas.name.contains("Dialogue")):
 					areaDialogueName = areas.name
+				if(areas.name.contains("Spike")):
+					dead = true
+					paused = false
+					speedrun.shouldcontinue = false
+					if(Globals.have_finish_game == "true"):
+						sprite.play("death_golden")
+					else:
+						sprite.play("death")
+					Globals.save()
+					restartButton.grab_focus()
 			currentDialogue = list_dialogues[areaDialogueName]
 			inDialogue = true
 
