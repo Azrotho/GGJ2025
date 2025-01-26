@@ -19,6 +19,7 @@ extends CharacterBody2D
 	"DialoguePanneau3" : Panneau3Dialogue.new(),
 	"DialoguePanneau4" : Panneau4Dialogue.new(),
 	"DialoguePanneau5" : Panneau5Dialogue.new(),
+	"DialoguePanneau6" : Panneau6Dialogue.new(),
 	"DialogueRobotOeuf" : RobotOeufDialogue.new()
 }
 
