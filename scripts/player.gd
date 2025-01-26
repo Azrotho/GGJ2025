@@ -163,8 +163,9 @@ func _process(_delta: float) -> void:
 				actualText = ""
 				timeSinceLastLetter = 0
 	else:
+		if(!paused and !dead):
+			Engine.time_scale = 1
 		dialogue.hide()
-		Engine.time_scale = 1
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
